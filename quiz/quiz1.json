@@ -1,0 +1,94 @@
+[
+    {
+        "quizType": "qcm",
+        "question": "Who wrote the play 'Romeo and Juliet'?",
+        "a": "Charles Dickens",
+        "b": "William Shakespeare",
+        "c": "Mark Twain",
+        "d": "Jane Austen",
+        "Correct": "William Shakespeare",
+        "Explanation": "'Romeo and Juliet' is one of William Shakespeare's most famous tragedies, written in the early stages of his career."
+    },
+    {
+        "quizType": "YesOrNo",
+        "question": "The currency of Japan is the yen.",
+        "a": "True",
+        "b": "False",
+        "Correct": "True",
+        "Explanation": "The yen is Japan's official currency and one of the most traded currencies globally."
+    },
+    {
+        "quizType": "Typing",
+        "question": "What is the smallest planet in our solar system?",
+        "Correct": "Mercury",
+        "Explanation": "Mercury is the smallest planet in our solar system and also the closest to the Sun."
+    },
+    {
+        "quizType": "YesOrNo",
+        "question": "Mount Everest is the tallest mountain in the world.",
+        "a": "True",
+        "b": "False",
+        "Correct": "True",
+        "Explanation": "Mount Everest is the tallest mountain on Earth, standing at 8,848 meters (29,029 feet) above sea level."
+    },
+    {
+        "quizType": "qcm",
+        "question": "What is the chemical symbol for gold?",
+        "a": "Ag",
+        "b": "Fe",
+        "c": "Au",
+        "d": "Hg",
+        "Correct": "Au",
+        "Explanation": "'Au' comes from the Latin word for gold, 'aurum.' Gold is a precious metal with a long history of use in currency and jewelry."
+    },
+    {
+        "quizType": "YesOrNo",
+        "question": "Albert Einstein invented the light bulb.",
+        "a": "True",
+        "b": "False",
+        "Correct": "False",
+        "Explanation": "Thomas Edison is credited with inventing the light bulb. Albert Einstein is best known for his work on the theory of relativity and his contributions to physics."
+    },
+    {
+        "quizType": "Typing",
+        "question": "What element does 'O' represent on the periodic table?",
+        "Correct": "Oxygen",
+        "Explanation": "'O' stands for oxygen, an essential element for life on Earth, making up about 21% of Earth's atmosphere."
+    },
+    {
+        "quizType": "qcm",
+        "question": "What is the largest desert in the world?",
+        "a": "Sahara",
+        "b": "Kalahari",
+        "c": "Gobi",
+        "d": "Antarctica",
+        "Correct": "Antarctica",
+        "Explanation": "The largest desert in the world is Antarctica, a cold desert, while the Sahara is the largest hot desert."
+    },
+    {
+        "quizType": "YesOrNo",
+        "question": "The Amazon River is the longest river in the world.",
+        "a": "True",
+        "b": "False",
+        "Correct": "False",
+        "Explanation": "The Nile River is traditionally considered the longest river, though the Amazon is the largest by discharge of water."
+    },
+    {
+        "quizType": "qcm",
+        "question": "Which planet is known as the 'Red Planet'?",
+        "a": "Earth",
+        "b": "Venus",
+        "c": "Mars",
+        "d": "Jupiter",
+        "Correct": "Mars",
+        "Explanation": "Mars is often called the 'Red Planet' because of its reddish appearance, which is due to iron oxide (rust) on its surface."
+    },
+    {
+        "title": "General Knowledge",
+        "category": "General Knowledge",
+        "questionsNum": 10,
+        "tempMoy": "5min",
+        "status": "Inactif",
+        "difficulty": "Medium"
+    }
+]

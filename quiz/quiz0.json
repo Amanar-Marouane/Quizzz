@@ -1,0 +1,103 @@
+[
+    {
+        "quizType": "YesOrNo",
+        "question": "A leap year occurs every four years.",
+        "a": "True",
+        "b": "False",
+        "Correct": "True",
+        "Explanation": "A leap year occurs every 4 years to add an extra day (February 29) to the calendar to align it with Earth's orbit around the sun.",
+        "points": 100
+    },
+    {
+        "quizType": "Typing",
+        "question": "Who was the first President of the United States?",
+        "Correct": "Washington",
+        "Explanation": "George Washington was the first President of the United States and a central figure in the American Revolution.",
+        "points": 100
+    },
+    {
+        "quizType": "qcm",
+        "question": "What is the main ingredient in guacamole?",
+        "a": "Tomato",
+        "b": "Avocado",
+        "c": "Onion",
+        "d": "Lime",
+        "Correct": "Avocado",
+        "Explanation": "Guacamole is a popular Mexican dish primarily made from ripe avocados, which give it its creamy texture.",
+        "points": 100
+    },
+    {
+        "quizType": "YesOrNo",
+        "question": "The Mona Lisa is housed in the Louvre Museum in Paris.",
+        "a": "True",
+        "b": "False",
+        "Correct": "True",
+        "Explanation": "The Mona Lisa is displayed in the Louvre Museum in Paris, where it attracts millions of visitors each year.",
+        "points": 100
+    },
+    {
+        "quizType": "Typing",
+        "question": "What is the longest river in the world?",
+        "Correct": "Nile",
+        "Explanation": "The Nile River, located in Africa, is traditionally considered the longest river, although the Amazon is sometimes argued to be longer by some measurements.",
+        "points": 100
+    },
+    {
+        "quizType": "qcm",
+        "question": "What is the capital city of Japan?",
+        "a": "Beijing",
+        "b": "Seoul",
+        "c": "Tokyo",
+        "d": "Kyoto",
+        "Correct": "Tokyo",
+        "Explanation": "Tokyo is Japan's capital and its largest city, known for its modern technology, culture, and historic landmarks.",
+        "points": 100
+    },
+    {
+        "quizType": "YesOrNo",
+        "question": "The Great Wall of China is visible from space.",
+        "a": "True",
+        "b": "False",
+        "Correct": "False",
+        "Explanation": "Despite popular belief, the Great Wall of China is not easily visible from space with the naked eye due to its narrow width and similar color to the surrounding terrain.",
+        "points": 100
+    },
+    {
+        "quizType": "Typing",
+        "question": "What is the smallest planet in our solar system?",
+        "Correct": "Mercury",
+        "Explanation": "Mercury is the smallest planet in our solar system and also the closest to the Sun.",
+        "points": 100
+    },
+    {
+        "quizType": "qcm",
+        "question": "What is the largest mammal in the world?",
+        "a": "Elephant",
+        "b": "Blue whale",
+        "c": "Giraffe",
+        "d": "Hippopotamus",
+        "Correct": "Blue whale",
+        "Explanation": "The blue whale holds the title for the largest animal ever known to have existed on Earth.",
+        "points": 100
+    },
+    {
+        "quizType": "qcm",
+        "question": "Which ocean is the largest?",
+        "a": "Atlantic Ocean",
+        "b": "Indian Ocean",
+        "c": "Southern Ocean",
+        "d": "Pacific Ocean",
+        "Correct": "Pacific Ocean",
+        "Explanation": "The Pacific Ocean is the largest of Earth's five oceans, covering more than 60 million square miles.",
+        "points": 100
+    },
+    {
+        "title": "General Knowledge",
+        "category": "General Knowledge",
+        "questionsNum": 10,
+        "tempMoy": "5min",
+        "status": "Inactif",
+        "difficulty": "Medium",
+        "points": 100
+    }
+]

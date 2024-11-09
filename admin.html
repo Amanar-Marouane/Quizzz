@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="headerContent">
+            <div class="logo">
+                <img src="media/Logo.svg" alt="">
+            </div>
+            <nav class="QuickAccess">
+                <a href="home.html">
+                    <img src="media/Home.svg" alt="">
+                </a>
+                <a href="admin.html">
+                    <img src="media/Admin.svg" alt="">
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="panel">
+        <div class="statistique">
+            <h3>
+                See the current statistiques
+            </h3>
+        </div>
+    </section>
+
+    <section class="S1">
+        <div class="status">
+            <div class="actif">
+                <h3>actif</h3>
+                <div class="skyblue">
+                </div>
+            </div>
+            <div class="inactif">
+                <h3>inactif</h3>
+                <div class="white">
+
+                </div>
+            </div>
+        </div>
+        <div class="quizContainer">
+            <div class="quiz">
+                <div class="info">
+                    <img src="media/quiz-svgrepo-com.svg" alt="">
+                    <h3>Miecraft Questions</h3>
+                    <h3>Category: <span>History</span></h3>
+                    <h5>Quiz Type : <span>4P1A</span></h5>
+                    <h3>Number of qustions: <span>15</span></h3>
+                    <h3>Estimated Time: <span>5min</span></h3>
+                    <h3>Difficulty: <span>Insane</span></h3>
+                </div>
+                <div class="start">
+                    <button>Enter</button>
+                </div>
+            </div>
+            <div class="quiz">
+                <div class="info">
+                    <img src="media/quiz-svgrepo-com.svg" alt="">
+                    <h3>Miecraft Questions</h3>
+                    <h3>Category: <span>History</span></h3>
+                    <h5>Quiz Type : <span>Yes Or No</span></h5>
+                    <h5>Number of qustions: <span>15</span></h5>
+                    <h3>Estimated Time: <span>5min</span></h3>
+                    <h3>Difficulty: <span>Insane</span></h3>
+                </div>
+                <div class="start">
+                    <button>Enter</button>
+                </div>
+            </div>
+            <div class="quiz">
+                <div class="info">
+                    <img src="media/quiz-svgrepo-com.svg" alt="">
+                    <h3>Miecraft Questions</h3>
+                    <h3>Category: <span>History</span></h3>
+                    <h5>Quiz Type : <span>Typing</span></h5>
+                    <h5>Number of qustions: <span>15</span></h5>
+                    <h3>Estimated Time: <span>5min</span></h3>
+                    <h3>Difficulty: <span>Insane</span></h3>
+                </div>
+                <div class="start">
+                    <button>Enter</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="addQuiz">
+        <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22ZM12 8.25C12.4142 8.25 12.75 8.58579 12.75 9V11.25H15C15.4142 11.25 15.75 11.5858 15.75 12C15.75 12.4142 15.4142 12.75 15 12.75H12.75L12.75 15C12.75 15.4142 12.4142 15.75 12 15.75C11.5858 15.75 11.25 15.4142 11.25 15V12.75H9C8.58579 12.75 8.25 12.4142 8.25 12C8.25 11.5858 8.58579 11.25 9 11.25H11.25L11.25 9C11.25 8.58579 11.5858 8.25 12 8.25Z"
+                fill="#1C274C" />
+        </svg>
+    </div>
+</body>
+
+</html>
+
+<template id="quizCardTemplate">
+    <div class="quiz">
+        <div class="info">
+            <img src="media/quiz-svgrepo-com.svg" alt="">
+            <h3 class="quizTitle"></h3>
+            <h3>Category: <span class="category"></span></h3>
+            <h5>Quiz Type : <span class="quizType"></span></h5>
+            <h5>Number of qustions: <span class="numOfQuestions"></span></h5>
+            <h3>Estimated Time: <span class="esTime"></span></h3>
+            <h3>Difficulty: <span class="difficulty"></span></h3>
+        </div>
+        <div class="start">
+            <button>Enter</button>
+        </div>
+    </div>
+</template>
+<template id="FAnswers">
+    <div class="quizInterface">
+        <div class="quizHeader">
+            <div class="score">
+                <h1>Score: <span>2163</span></h1>
+            </div>
+            <div class="currQuestion">
+                <h1><span>5</span>/<span>10</span></h1>
+            </div>
+            <div class="timer">
+                <h1>30</h1>
+            </div>
+        </div>
+        <div id="progress"></div>
+        <div class="questionScreen">
+            <div class="question">
+                <h1>What is the most dangerous animal</h1>
+            </div>
+        </div>
+        <div class="YesOrNo">
+            <div class="yes">
+                <h1>True</h1>
+            </div>
+            <div class="no">
+                <h1>False</h1>
+            </div>
+        </div>
+    </div>
+</template>
+<template id="YesOrNo">
+    <div class="quizInterface">
+        <div class="quizHeader">
+            <div class="score">
+                <h1>Score: <span>2163</span></h1>
+            </div>
+            <div class="currQuestion">
+                <h1><span>5</span>/<span>10</span></h1>
+            </div>
+            <div class="timer">
+                <h1>30</h1>
+            </div>
+        </div>
+        <div id="progress"></div>
+        <div class="questionScreen">
+            <div class="question">
+                <h1>What is the most dangerous animal</h1>
+            </div>
+        </div>
+        <div class="YesOrNo">
+            <div class="yes">
+                <h1>True</h1>
+            </div>
+            <div class="no">
+                <h1>False</h1>
+            </div>
+        </div>
+        <hr>
+        <div class="FChoices">
+            <div class="first">
+                <h1>Bla bla Bla</h1>
+            </div>
+            <div class="second">
+                <h1>Blab bla bla</h1>
+            </div>
+            <div class="third">
+                <h1>bla Bla bla</h1>
+            </div>
+            <div class="forth">
+                <h1>BLA BLA BLA</h1>
+            </div>
+        </div>
+        <hr>
+    </div>
+</template>
+<template id="typing">
+    <div class="quizInterface">
+        <div class="quizHeader">
+            <div class="score">
+                <h1>Score: <span>2163</span></h1>
+            </div>
+            <div class="currQuestion">
+                <h1><span>5</span>/<span>10</span></h1>
+            </div>
+            <div class="timer">
+                <h1>30</h1>
+            </div>
+        </div>
+        <div id="progress"></div>
+        <div class="questionScreen">
+            <div class="question">
+                <h1>What is the most dangerous animal</h1>
+            </div>
+        </div>
+        <div class="typing">
+            <form>
+                <div class="input">
+                    <input type="text" placeholder="Type here ...">
+                </div>
+                <div class="button">
+                    <button>Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</template>

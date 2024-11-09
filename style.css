@@ -1,0 +1,450 @@
+@import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');
+
+:root {
+    --actif : #608BC1;
+    --inactif : #F3F3E0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Tiny5", sans-serif;
+    background: #373B44;
+    background: linear-gradient(to bottom, #4286f4, #373B44) no-repeat;
+    height: fit-content;
+    user-select: none;
+    position: relative;
+}
+
+button {
+    font-family: "Tiny5", sans-serif;
+}
+
+.headerContent {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 1px 20px;
+}
+
+.headerContent .logo img {
+    width: 70px;
+}
+
+.QuickAccess {
+    width: 10%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.QuickAccess img {
+    width: 40px;
+    padding: .3em;
+}
+
+.S1 {
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 1em;
+}
+
+.S1 .status {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.actif {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .3em;
+}
+
+.actif .skyblue {
+    width: 3em;
+    height: 2em;
+    background-color: var(--actif);
+    border: 1px solid;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px;
+}
+
+.inactif {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .3em;
+}
+
+.inactif .white {
+    width: 3em;
+    height: 2em;
+    background-color: var(--inactif);
+    border: 1px solid;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px;
+}
+
+.S1 .quizContainer {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 1em;
+    column-gap: 1em;
+}
+
+.S1 .quizContainer .quiz {
+    width: 25em;
+    height: 18em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--actif);
+    border-radius: 20px;
+    padding: 1em;
+    box-shadow: 5px 5px 10px;
+}
+
+.S1 .quizContainer .quiz img {
+    width: 50px;
+}
+
+.S1 .quizContainer .quiz .info {
+    width: 60%;
+    line-height: 35px;
+}
+
+.S1 .quizContainer .quiz .start button {
+    padding: .5em 3em;
+    border-radius: 15px;
+    background-color: #CBDCEB;
+    font-weight: 600;
+    border: #000 1px solid;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px;
+}
+
+.addQuiz {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.addQuiz svg{
+    width: 5em;
+    height: fit-content;
+    border-radius: 50px;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+}
+
+.panel {
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.panel .statistique {
+    width: 18em;
+    height: 90%;
+    background-color: #F3F3E0;
+    border: 1px solid black;
+    border-radius: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px;
+}
+
+.quizInterface {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1em;
+}
+
+.quizInterface .quizHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.quizInterface .quizHeader .timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .3em;
+}
+
+.quizInterface .quizHeader .timer svg {
+    width: 40px;
+    height: fit-content;
+}
+
+.quizInterface #progress {
+    width: 0%;
+    height: 2vh;
+    background-color: #F3F3E0;
+    border-radius: 10px;
+    box-shadow: 1px 1px 4px;
+}
+
+.quizInterface .questionScreen {
+    width: 100%;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quizInterface .questionScreen .question svg {
+    width: 80px;
+    height: fit-content;
+}
+
+.quizInterface .questionScreen .question .type {
+    width: fit-content;
+    height: 80pxt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#boolean {
+    display: none;
+}
+
+#typing {
+    display: none;
+}
+
+#qcm {
+    display: none;
+}
+
+.quizInterface .questionScreen .question {
+    min-width: 60%;
+    min-height: 20vh;
+    background-color: #F3F3E0;
+    border: 1px solid;
+    border-radius: 20px;
+    box-shadow: 4px 4px 8px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 1em;
+    padding: 1em;
+}
+
+.quizInterface .YesOrNo {
+    width: 100%;
+    height: 40vh;
+    display: none;
+    justify-content: space-around;
+    align-items:center;
+}
+
+.quizInterface .questionScreen .question .points h2 {
+    text-shadow: 2px 2px 4px;
+}
+
+
+.quizInterface .YesOrNo .yes,
+.quizInterface .YesOrNo .no {
+    min-width: 40%;
+    min-height: 40%;
+    text-align: center;
+    background-color: #CBDCEB;
+    border-radius: 20px;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 4px 4px 8px;
+}
+
+.quizInterface .FChoices {
+    width: 100%;
+    height: 40vh;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.quizInterface .FChoices .first,
+.quizInterface .FChoices .second,
+.quizInterface .FChoices .third,
+.quizInterface .FChoices .forth {
+    min-width: 40%;
+    min-height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #CBDCEB;
+    border: 1px solid;
+    border-radius: 20px;
+    box-shadow: 4px 4px 8px;
+    padding: 1em;
+    cursor: pointer;
+}
+
+.quizInterface .typing {
+    width: 100%;
+    height: 40vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.quizInterface .typing form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.quizInterface .typing .input {
+    width: 80%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quizInterface .typing .input input {
+    min-width: 50%;
+    height: 100%;
+    border: 1px solid;
+    border-radius: 15px;
+    padding: 1em 1em;
+    font-size: 1.5em;
+    box-shadow: 4px 4px 8px;
+}
+
+.quizInterface .typing .input input::placeholder {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.quizInterface .typing .input svg{
+    width: 60px;
+    height: fit-content;
+    rotate: 45deg;
+    cursor: pointer;
+}
+
+.quizInterface .typing .input svg:hover {
+    fill: #F3F3E0;
+    transition: all .5s;
+}
+
+.getBack {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.getBack svg {
+    width: 80px;
+    height: fit-content;
+    cursor: pointer;
+    user-select: none;
+}
+
+.container {
+    position: absolute;
+    z-index: 15;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+}
+
+.explanation {
+    position: absolute;
+    z-index: 20;
+    min-width: 50%;
+    min-height: 30vh;
+    margin: auto;
+    background-color: #CBDCEB;
+    border-radius: 20px;
+    box-shadow: 4px 4px 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.result {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+}
+
+.result .interface {
+    background: #373B44;
+    width: 60%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 1.5em;
+    border-radius: 20px;
+    color: #F3F3E0;
+}
+
+.result .interface button {
+    padding: .8em 3em;
+    border: 1px solid;
+    border-radius: 15px;
+    box-shadow: 2px 2px 4px;
+    background-color: #608BC1;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+#btn {
+    background: transparent;
+    border: none;
+}
+
+#Home a {
+    text-decoration: none;
+    color: #000;
+}
