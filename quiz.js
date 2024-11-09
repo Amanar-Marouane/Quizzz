@@ -270,7 +270,11 @@ let title = document.querySelector("#quizName")
 let finalScore = document.querySelector("#finalScore")
 let total = 0;
 let motivation = document.querySelector("#motivation")
+let ScreenBlur = document.querySelector('.quizInterface')
+let blurAgain = document.querySelector(".getBack")
 function resultScreen() {
+    ScreenBlur.style.filter = 'blur(10px)'
+    blurAgain.style.filter = 'blur(10px)'
     title.innerHTML = data[data.length - 1].title
     if (Number(localStorage.getItem("quiz" + currQuiz + "Score")) < Number(currScore.innerText)) {
         localStorage.setItem("quiz" + currQuiz + "Score", currScore.innerText);
