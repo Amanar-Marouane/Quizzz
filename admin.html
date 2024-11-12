@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administration</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="Cards.js"></script>
 </head>
 
 <body>
@@ -48,48 +49,6 @@
             </div>
         </div>
         <div class="quizContainer">
-            <div class="quiz">
-                <div class="info">
-                    <img src="media/quiz-svgrepo-com.svg" alt="">
-                    <h3>Miecraft Questions</h3>
-                    <h3>Category: <span>History</span></h3>
-                    <h5>Quiz Type : <span>4P1A</span></h5>
-                    <h3>Number of qustions: <span>15</span></h3>
-                    <h3>Estimated Time: <span>5min</span></h3>
-                    <h3>Difficulty: <span>Insane</span></h3>
-                </div>
-                <div class="start">
-                    <button>Enter</button>
-                </div>
-            </div>
-            <div class="quiz">
-                <div class="info">
-                    <img src="media/quiz-svgrepo-com.svg" alt="">
-                    <h3>Miecraft Questions</h3>
-                    <h3>Category: <span>History</span></h3>
-                    <h5>Quiz Type : <span>Yes Or No</span></h5>
-                    <h5>Number of qustions: <span>15</span></h5>
-                    <h3>Estimated Time: <span>5min</span></h3>
-                    <h3>Difficulty: <span>Insane</span></h3>
-                </div>
-                <div class="start">
-                    <button>Enter</button>
-                </div>
-            </div>
-            <div class="quiz">
-                <div class="info">
-                    <img src="media/quiz-svgrepo-com.svg" alt="">
-                    <h3>Miecraft Questions</h3>
-                    <h3>Category: <span>History</span></h3>
-                    <h5>Quiz Type : <span>Typing</span></h5>
-                    <h5>Number of qustions: <span>15</span></h5>
-                    <h3>Estimated Time: <span>5min</span></h3>
-                    <h3>Difficulty: <span>Insane</span></h3>
-                </div>
-                <div class="start">
-                    <button>Enter</button>
-                </div>
-            </div>
         </div>
     </section>
     <div class="addQuiz">
@@ -102,125 +61,3 @@
 </body>
 
 </html>
-
-<template id="quizCardTemplate">
-    <div class="quiz">
-        <div class="info">
-            <img src="media/quiz-svgrepo-com.svg" alt="">
-            <h3 class="quizTitle"></h3>
-            <h3>Category: <span class="category"></span></h3>
-            <h5>Quiz Type : <span class="quizType"></span></h5>
-            <h5>Number of qustions: <span class="numOfQuestions"></span></h5>
-            <h3>Estimated Time: <span class="esTime"></span></h3>
-            <h3>Difficulty: <span class="difficulty"></span></h3>
-        </div>
-        <div class="start">
-            <button>Enter</button>
-        </div>
-    </div>
-</template>
-<template id="FAnswers">
-    <div class="quizInterface">
-        <div class="quizHeader">
-            <div class="score">
-                <h1>Score: <span>2163</span></h1>
-            </div>
-            <div class="currQuestion">
-                <h1><span>5</span>/<span>10</span></h1>
-            </div>
-            <div class="timer">
-                <h1>30</h1>
-            </div>
-        </div>
-        <div id="progress"></div>
-        <div class="questionScreen">
-            <div class="question">
-                <h1>What is the most dangerous animal</h1>
-            </div>
-        </div>
-        <div class="YesOrNo">
-            <div class="yes">
-                <h1>True</h1>
-            </div>
-            <div class="no">
-                <h1>False</h1>
-            </div>
-        </div>
-    </div>
-</template>
-<template id="YesOrNo">
-    <div class="quizInterface">
-        <div class="quizHeader">
-            <div class="score">
-                <h1>Score: <span>2163</span></h1>
-            </div>
-            <div class="currQuestion">
-                <h1><span>5</span>/<span>10</span></h1>
-            </div>
-            <div class="timer">
-                <h1>30</h1>
-            </div>
-        </div>
-        <div id="progress"></div>
-        <div class="questionScreen">
-            <div class="question">
-                <h1>What is the most dangerous animal</h1>
-            </div>
-        </div>
-        <div class="YesOrNo">
-            <div class="yes">
-                <h1>True</h1>
-            </div>
-            <div class="no">
-                <h1>False</h1>
-            </div>
-        </div>
-        <hr>
-        <div class="FChoices">
-            <div class="first">
-                <h1>Bla bla Bla</h1>
-            </div>
-            <div class="second">
-                <h1>Blab bla bla</h1>
-            </div>
-            <div class="third">
-                <h1>bla Bla bla</h1>
-            </div>
-            <div class="forth">
-                <h1>BLA BLA BLA</h1>
-            </div>
-        </div>
-        <hr>
-    </div>
-</template>
-<template id="typing">
-    <div class="quizInterface">
-        <div class="quizHeader">
-            <div class="score">
-                <h1>Score: <span>2163</span></h1>
-            </div>
-            <div class="currQuestion">
-                <h1><span>5</span>/<span>10</span></h1>
-            </div>
-            <div class="timer">
-                <h1>30</h1>
-            </div>
-        </div>
-        <div id="progress"></div>
-        <div class="questionScreen">
-            <div class="question">
-                <h1>What is the most dangerous animal</h1>
-            </div>
-        </div>
-        <div class="typing">
-            <form>
-                <div class="input">
-                    <input type="text" placeholder="Type here ...">
-                </div>
-                <div class="button">
-                    <button>Submit</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</template>

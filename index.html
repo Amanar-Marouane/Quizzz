@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>format</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="Add.js"></script>
+</head>
+
+<body>
+    <div class="formatContainer">
+        <div class="format">
+            <div class="form">
+                <input type="text" name="title" id="title" placeholder="Title">
+                <input type="text" name="category" id="category" placeholder="Category">
+                <input type="text" name="tempMoy" id="tempMoy" placeholder="Average Time">
+                <select name="difficulty" id="difficulty">
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                    <option value="Insine">Insine</option>
+                    <option value="Nightmare">Nightmare</option>
+                </select>
+                <button id="infoDone">Next</button>
+            </div>
+        </div>
+    </div>
+    <div class="QformatContainer">
+        <div class="Qformat">
+            <div class="form">
+                <h2>Choose The Type Of The Question</h2>
+                <select onchange="selectOnChange()" name="quizType" id="quizType">
+                    <option value=""></option>
+                    <option value="QCM">QCM</option>
+                    <option value="Typing">Typing</option>
+                    <option value="Boolean">Boolean</option>
+                </select>
+                <input type="text" name="questionTitle" id="questionTitle" placeholder="questionTitle">
+                <div class="qcm">
+                    <input type="text" id="a" placeholder="Option_a">
+                    <input type="text" id="b" placeholder="Option_b">
+                    <input type="text" id="c" placeholder="Option_c">
+                    <input type="text" id="d" placeholder="Option_d">
+                    <input type="text" id="correct" placeholder="Correct Answer">
+                </div>
+                <div class="typing" style="display: none;">
+                    <input type="text" id="Answer" placeholder="Answer Here..">
+                </div>
+                <div class="boolean">
+                    <input type="text" id="bool" placeholder="True Or False">
+                </div>
+                <input type="text" name="questionExplanation" id="questionExplanation" placeholder="Write Your Explanation">
+                <input type="number" name="questionPts" id="questionPts" placeholder="Points On The question">
+                <button id="AddAnswer" onclick="addAnswer()">Add One More Answer</button>
+                <button id="next" onclick="questionVal()">Next</button>
+                <button id="finish">Finish</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

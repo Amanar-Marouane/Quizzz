@@ -1,5 +1,10 @@
 let i = 0
-let currQuiz = 0
+let currQuiz = ''
+if (localStorage.getItem("quizToPlay") === null) {
+    currQuiz = 0
+} else {
+    currQuiz = localStorage.getItem("quizToPlay")
+}
 const url = `./quiz/quiz${currQuiz}.json`
 let response = ''
 let data = ""
@@ -41,7 +46,7 @@ let explanationDelay = 5000
 let result = document.querySelector(".result")
 
 async function fetchData() {
-    response = await fetch('./quiz/quiz0.json')
+    response = await fetch(`./quiz/quiz${currQuiz}.json`)
     data = await response.json()
     console.log("fetching")
     global()
@@ -232,28 +237,54 @@ function answerEff() {
     }
 }
 
+let flag = true;
 function handleTypingClick() {
     value = answerInput.value.toLowerCase();
     console.log("Curr input ==> " + value);
-
-    if (value === data[i].Correct.toLowerCase()) {
-        answerSender.style.pointerEvents = "none";
-        currScore.innerText = Number(currScore.innerText) + Number(points.innerText);
-        answerInput.style.background = 'green';
-        console.log("correct validation");
-        setTimeout(() => {
-            clearInterval(Timer);
-            timer.innerText = 30;
-            i++;
-            console.log("calling global() by correct validation");
-            if (i === data.length - 1) {
-                result.style.display = 'flex'
+    if (Array.isArray(data[i].Correct)) {
+        Array.from(data[i].Correct).forEach(e => {
+            if (value === e.toLowerCase()) {
+                flag = false
+                answerSender.style.pointerEvents = "none";
+                currScore.innerText = Number(currScore.innerText) + Number(points.innerText);
+                answerInput.style.background = 'green';
+                console.log("correct validation");
+                setTimeout(() => {
+                    clearInterval(Timer);
+                    timer.innerText = 30;
+                    i++;
+                    console.log("calling global() by correct validation");
+                    if (i === data.length - 1) {
+                        result.style.display = 'flex'
+                    }
+                    global();
+                }, 1000);
             }
-            global();
-        }, 1000);
+        })
+        if (flag === true) {
+            answerInput.style.background = 'red';
+            console.log("incorrect validation");
+        }
     } else {
-        answerInput.style.background = 'red';
-        console.log("incorrect validation");
+        if (value === data[i].Correct.toLowerCase()) {
+            answerSender.style.pointerEvents = "none";
+            currScore.innerText = Number(currScore.innerText) + Number(points.innerText);
+            answerInput.style.background = 'green';
+            console.log("correct validation");
+            setTimeout(() => {
+                clearInterval(Timer);
+                timer.innerText = 30;
+                i++;
+                console.log("calling global() by correct validation");
+                if (i === data.length - 1) {
+                    result.style.display = 'flex'
+                }
+                global();
+            }, 1000);
+        } else {
+            answerInput.style.background = 'red';
+            console.log("incorrect validation");
+        }
     }
     answerInput.style.transition = 'background .5s';
 }
@@ -282,15 +313,15 @@ function resultScreen() {
     } else {
         finalScore.innerHTML = `Score: ${currScore.innerText}`
     }
-    Array.from(data).forEach((e,i) => {
-        if(data[i] === data[data.length - 1]){
+    Array.from(data).forEach((e, i) => {
+        if (data[i] === data[data.length - 1]) {
             return
         }
         total += data[i].points
     })
-    if(Number(currScore.innerText) <= total/3){
+    if (Number(currScore.innerText) <= total / 3) {
         motivation.innerHTML = 'Not Bad! Shall We Try Again??'
-    }if (Number(currScore.innerText) < total) {
+    } if (Number(currScore.innerText) < total) {
         motivation.innerHTML = 'Good! But You Can Do Better!!'
     } else {
         motivation.innerHTML = 'Excellent!!!!!'

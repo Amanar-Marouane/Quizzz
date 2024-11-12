@@ -1,6 +1,5 @@
 [
     {
-        "id": 1,
         "quizType": "YesOrNo",
         "question": "The Eiffel Tower is located in London.",
         "a": "True",
@@ -9,14 +8,12 @@
         "Explanation": "The Eiffel Tower is located in Paris, France, and is one of the most recognizable landmarks in the world."
     },
     {
-        "id": 2,
         "quizType": "Typing",
         "question": "What is the capital of France?",
         "Correct": "Paris",
         "Explanation": "Paris is the capital of France, known for its landmarks such as the Eiffel Tower, the Louvre, and its rich cultural history."
     },
     {
-        "id": 3,
         "quizType": "qcm",
         "question": "Which planet is known as the 'Red Planet'?",
         "a": "Earth",
@@ -27,7 +24,6 @@
         "Explanation": "Mars is often called the 'Red Planet' because of its reddish appearance, which is due to iron oxide (rust) on its surface."
     },
     {
-        "id": 4,
         "quizType": "YesOrNo",
         "question": "The Great Wall of China is visible from space.",
         "a": "True",
@@ -36,14 +32,12 @@
         "Explanation": "Despite popular belief, the Great Wall of China is not easily visible from space with the naked eye due to its narrow width and similar color to the surrounding terrain."
     },
     {
-        "id": 5,
         "quizType": "Typing",
         "question": "What is the chemical symbol for water?",
         "Correct": "H2O",
         "Explanation": "Water is made up of two hydrogen atoms and one oxygen atom, hence the chemical formula H2O."
     },
     {
-        "id": 6,
         "quizType": "qcm",
         "question": "What is the largest mammal in the world?",
         "a": "Elephant",
@@ -54,7 +48,6 @@
         "Explanation": "The blue whale holds the title for the largest animal ever known to have existed on Earth."
     },
     {
-        "id": 7,
         "quizType": "YesOrNo",
         "question": "Australia is both a country and a continent.",
         "a": "True",
@@ -63,14 +56,12 @@
         "Explanation": "Australia is unique in that it is both a country and a continent, making it the smallest continent and the sixth-largest country by land area."
     },
     {
-        "id": 8,
         "quizType": "Typing",
         "question": "Who is known for the theory of relativity?",
         "Correct": "Einstein",
         "Explanation": "Albert Einstein developed the theory of relativity, revolutionizing modern physics."
     },
     {
-        "id": 9,
         "quizType": "qcm",
         "question": "What is the main ingredient in guacamole?",
         "a": "Tomato",
@@ -81,7 +72,6 @@
         "Explanation": "Guacamole is a popular Mexican dish primarily made from ripe avocados, which give it its creamy texture."
     },
     {
-        "id": 10,
         "quizType": "YesOrNo",
         "question": "The Mona Lisa is housed in the Louvre Museum in Paris.",
         "a": "True",
@@ -90,11 +80,10 @@
         "Explanation": "The Mona Lisa is displayed in the Louvre Museum in Paris, where it attracts millions of visitors each year."
     },
     {
-        "title": "General Knowledge",
-        "category": "General Knowledge",
+        "title": "General Knowledge 3",
+        "category": "Knowledge",
         "questionsNum": 10,
         "tempMoy": "5min",
-        "status": "Inactif",
         "difficulty": "Medium"
     }
 ]

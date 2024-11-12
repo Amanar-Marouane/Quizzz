@@ -84,11 +84,10 @@
         "Explanation": "Mars is often called the 'Red Planet' because of its reddish appearance, which is due to iron oxide (rust) on its surface."
     },
     {
-        "title": "General Knowledge",
-        "category": "General Knowledge",
+        "title": "General Knowledge 2",
+        "category": "General",
         "questionsNum": 10,
         "tempMoy": "5min",
-        "status": "Inactif",
         "difficulty": "Medium"
     }
 ]

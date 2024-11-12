@@ -11,7 +11,10 @@
     {
         "quizType": "Typing",
         "question": "Who was the first President of the United States?",
-        "Correct": "Washington",
+        "Correct": [
+            "Washington",
+            "George"
+        ],
         "Explanation": "George Washington was the first President of the United States and a central figure in the American Revolution.",
         "points": 100
     },
@@ -92,12 +95,10 @@
         "points": 100
     },
     {
-        "title": "General Knowledge",
+        "title": "General Knowledge1",
         "category": "General Knowledge",
         "questionsNum": 10,
         "tempMoy": "5min",
-        "status": "Inactif",
-        "difficulty": "Medium",
-        "points": 100
+        "difficulty": "Medium"
     }
 ]
