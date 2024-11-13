@@ -46,10 +46,11 @@ let explanationDelay = 5000
 
 let result = document.querySelector(".result")
 
+let correctAnswers = 0;
+
 async function fetchData() {
     response = await fetch(url)
-    Res = await response.json()
-    data = Res[0]
+    data = await response.json()
     global()
 }
 fetchData()
@@ -165,6 +166,7 @@ function answerEff() {
             let selectedText = e.target.innerText;
             if (selectedText.includes(data.questions[i].Correct)) {
                 currScore.innerText = Number(currScore.innerText) + Number(points.innerText)
+                correctAnswers++;
             } else {
                 setTimeout(() => {
                     explanation.style.display = 'flex'
@@ -203,6 +205,7 @@ function answerEff() {
             let selectedText = e.target.innerText.toLowerCase();
             if (selectedText.includes(data.questions[i].Correct.toLowerCase())) {
                 currScore.innerText = Number(currScore.innerText) + Number(points.innerText)
+                correctAnswers++;
             } else {
                 setTimeout(() => {
                     explanation.style.display = 'flex'
@@ -243,6 +246,7 @@ function handleTypingClick() {
             answerSender.style.pointerEvents = "none";
             currScore.innerText = Number(currScore.innerText) + Number(points.innerText);
             answerInput.style.background = 'green';
+            correctAnswers++;
             setTimeout(() => {
                 clearInterval(Timer);
                 timer.innerText = 30;
@@ -272,6 +276,8 @@ let title = document.querySelector("#quizName")
 let finalScore = document.querySelector("#finalScore")
 let total = 0;
 let motivation = document.querySelector("#motivation")
+let C_T = document.querySelector("#C_T")
+let p_ = document.querySelector("#p_")
 let ScreenBlur = document.querySelector('.quizInterface')
 let blurAgain = document.querySelector(".getBack")
 
@@ -279,6 +285,8 @@ function resultScreen() {
     ScreenBlur.style.filter = 'blur(10px)'
     blurAgain.style.filter = 'blur(10px)'
     title.innerHTML = data.title
+    C_T.innerHTML = `${correctAnswers}/${data.questions.length} Correct Answers!!`
+    p_.innerHTML = `${correctAnswers / data.questions.length * 100}%`
     if (Number(localStorage.getItem("quiz" + currQuiz + "Score")) < Number(currScore.innerText)) {
         localStorage.setItem("quiz" + currQuiz + "Score", currScore.innerText);
         finalScore.innerHTML = `New Score!! ${currScore.innerText}`
