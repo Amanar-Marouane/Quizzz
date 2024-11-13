@@ -1,11 +1,12 @@
 let i = 0
 let currQuiz = ''
 if (localStorage.getItem("quizToPlay") === null) {
-    currQuiz = 0
+    location.href = `admin.html`
 } else {
-    currQuiz = localStorage.getItem("quizToPlay")
+    index = localStorage.getItem("quizToPlay")
+    currQuiz = localStorage.getItem("Card" + index)
 }
-const url = `./quiz/quiz${currQuiz}.json`
+const url = `http://localhost:3000/quizes/${currQuiz}/`
 let response = ''
 let data = ""
 
@@ -46,15 +47,14 @@ let explanationDelay = 5000
 let result = document.querySelector(".result")
 
 async function fetchData() {
-    response = await fetch(`./quiz/quiz${currQuiz}.json`)
-    data = await response.json()
-    console.log("fetching")
+    response = await fetch(url)
+    Res = await response.json()
+    data = Res[0]
     global()
 }
 fetchData()
 
 function global() {
-    console.log("enter global fun")
     if (result.style.display === 'flex') {
         resultScreen()
         return
@@ -64,22 +64,21 @@ function global() {
 }
 
 function questionScreen() {
-    console.log("enter question screen fun")
-    if (i <= data.length) {
+    if (i <= data.questions.length) {
         let text = document.querySelector(".text");
-        let question = data[i].question
+        let question = data.questions[i].question
         text.querySelector("h1").textContent = question
 
-        type = data[i].quizType
-        if (type === "YesOrNo") {
+        type = data.questions[i].quizType
+        if (type === "Boolean") {
             YesOrNo.style.display = 'flex'
             Typing.style.display = 'none'
             FChoice.style.display = 'none'
             boolean.style.display = 'block'
             typing.style.display = 'none'
             qcm.style.display = 'none'
-            yes.textContent = data[i].a
-            no.textContent = data[i].b
+            yes.textContent = data.questions[i].a
+            no.textContent = data.questions[i].b
             Array.from(choices).forEach((e) => {
                 e.style.background = '#CBDCEB'
             })
@@ -97,32 +96,32 @@ function questionScreen() {
             answerSender.style.pointerEvents = "auto";
 
         }
-        if (type === 'qcm') {
+        if (type === 'QCM') {
             Typing.style.display = 'none'
             YesOrNo.style.display = 'none'
             FChoice.style.display = 'flex'
             qcm.style.display = 'block'
             typing.style.display = 'none'
             boolean.style.display = 'none'
-            first.textContent = data[i].a
-            second.textContent = data[i].b
-            third.textContent = data[i].c
-            forth.textContent = data[i].d
+            first.textContent = data.questions[i].a
+            second.textContent = data.questions[i].b
+            third.textContent = data.questions[i].c
+            forth.textContent = data.questions[i].d
             Array.from(Choice).forEach((e) => {
                 e.style.background = '#CBDCEB'
             })
         }
 
         let explanation = document.querySelector(".explanation").querySelector("h2")
-        explanation.innerText = data[i].Explanation
+        explanation.innerText = data.questions[i].Explanation
 
         let points = document.getElementById("points")
-        points.innerText = data[i].points
+        points.innerText = data.questions[i].points
 
         currQuestion.innerText = i + 1
-        totalQuestions.innerText = data.length - 1
+        totalQuestions.innerText = data.questions.length
 
-        let process = data.length - 1
+        let process = data.questions.length - 1
         let bar = document.getElementById("progress")
         let currProcess = (i + 1) / process * 100
         bar.style.width = `${currProcess}%`
@@ -133,7 +132,7 @@ function questionScreen() {
 }
 
 function Timer() {
-    if (i < data.length) {
+    if (i < data.questions.length) {
         timer.innerText = Number(timer.innerText) - 1
         if (timer.innerText === "0") {
             clearInterval(Timer)
@@ -145,8 +144,7 @@ function Timer() {
                 i++
                 timer.innerText = 30
                 clearInterval(Timer)
-                console.log("calling by timer");
-                if (i === data.length - 1) {
+                if (i === data.questions.length) {
                     result.style.display = 'flex'
                 }
                 global()
@@ -159,13 +157,13 @@ function Timer() {
 setInterval(Timer, 1000)
 
 function answerEff() {
-    if (type === "qcm") {
+    if (type === "QCM") {
         Array.from(Choice).forEach((e) => {
             e.addEventListener("click", handleChoiceOnClick)
         })
         function handleChoiceOnClick(e) {
             let selectedText = e.target.innerText;
-            if (selectedText.includes(data[i].Correct)) {
+            if (selectedText.includes(data.questions[i].Correct)) {
                 currScore.innerText = Number(currScore.innerText) + Number(points.innerText)
             } else {
                 setTimeout(() => {
@@ -177,7 +175,7 @@ function answerEff() {
             }
             Array.from(Choice).forEach((r) => {
                 let textToCom = r.textContent
-                if (!textToCom.includes(data[i].Correct)) {
+                if (!textToCom.includes(data.questions[i].Correct)) {
                     r.style.background = 'red'
                 } else {
                     r.style.background = 'green'
@@ -189,21 +187,21 @@ function answerEff() {
                 i++
                 clearInterval(Timer)
                 timer.innerText = 30
-                if (i === data.length - 1) {
+                if (i === data.questions.length) {
                     result.style.display = 'flex'
                 }
                 global()
-            }, explanationDelay);
+            }, 2000);
         }
     }
 
-    if (type === "YesOrNo") {
+    if (type === "Boolean") {
         Array.from(choices).forEach((e) => {
             e.addEventListener("click", handleChoiceOnClick)
         })
         function handleChoiceOnClick(e) {
-            let selectedText = e.target.innerText;
-            if (selectedText.includes(data[i].Correct)) {
+            let selectedText = e.target.innerText.toLowerCase();
+            if (selectedText.includes(data.questions[i].Correct.toLowerCase())) {
                 currScore.innerText = Number(currScore.innerText) + Number(points.innerText)
             } else {
                 setTimeout(() => {
@@ -211,28 +209,27 @@ function answerEff() {
                 }, 500)
                 setTimeout(() => {
                     explanation.style.display = 'none'
-                }, explanationDelay);
+                }, 2000);
             }
             Array.from(choices).forEach((r) => {
-                let textToCom = r.textContent
-                if (!textToCom.includes(data[i].Correct)) {
+                let textToCom = r.textContent.toLocaleLowerCase()
+                if (!textToCom.includes(data.questions[i].Correct.toLocaleLowerCase())) {
                     r.style.background = 'red'
                 } else {
                     r.style.background = 'green'
                 }
                 r.style.transition = 'background .5s'
-                localStorage.setItem("quiz" + currQuiz + "Score", currScore.innerText)
                 r.removeEventListener("click", handleChoiceOnClick)
             })
             setTimeout(() => {
                 i++
                 clearInterval(Timer)
                 timer.innerText = 30
-                if (i === data.length - 1) {
+                if (i === data.questions.length) {
                     result.style.display = 'flex'
                 }
                 global()
-            }, explanationDelay);
+            }, 2000);
         }
     }
 }
@@ -240,51 +237,25 @@ function answerEff() {
 let flag = true;
 function handleTypingClick() {
     value = answerInput.value.toLowerCase();
-    console.log("Curr input ==> " + value);
-    if (Array.isArray(data[i].Correct)) {
-        Array.from(data[i].Correct).forEach(e => {
-            if (value === e.toLowerCase()) {
-                flag = false
-                answerSender.style.pointerEvents = "none";
-                currScore.innerText = Number(currScore.innerText) + Number(points.innerText);
-                answerInput.style.background = 'green';
-                console.log("correct validation");
-                setTimeout(() => {
-                    clearInterval(Timer);
-                    timer.innerText = 30;
-                    i++;
-                    console.log("calling global() by correct validation");
-                    if (i === data.length - 1) {
-                        result.style.display = 'flex'
-                    }
-                    global();
-                }, 1000);
-            }
-        })
-        if (flag === true) {
-            answerInput.style.background = 'red';
-            console.log("incorrect validation");
-        }
-    } else {
-        if (value === data[i].Correct.toLowerCase()) {
+    Array.from(data.questions[i].Correct).forEach(e => {
+        if (value === e.toLowerCase()) {
+            flag = false
             answerSender.style.pointerEvents = "none";
             currScore.innerText = Number(currScore.innerText) + Number(points.innerText);
             answerInput.style.background = 'green';
-            console.log("correct validation");
             setTimeout(() => {
                 clearInterval(Timer);
                 timer.innerText = 30;
                 i++;
-                console.log("calling global() by correct validation");
-                if (i === data.length - 1) {
+                if (i === data.questions.length - 1) {
                     result.style.display = 'flex'
                 }
                 global();
             }, 1000);
-        } else {
-            answerInput.style.background = 'red';
-            console.log("incorrect validation");
         }
+    })
+    if (flag === true) {
+        answerInput.style.background = 'red';
     }
     answerInput.style.transition = 'background .5s';
 }
@@ -303,27 +274,25 @@ let total = 0;
 let motivation = document.querySelector("#motivation")
 let ScreenBlur = document.querySelector('.quizInterface')
 let blurAgain = document.querySelector(".getBack")
+
 function resultScreen() {
     ScreenBlur.style.filter = 'blur(10px)'
     blurAgain.style.filter = 'blur(10px)'
-    title.innerHTML = data[data.length - 1].title
+    title.innerHTML = data.title
     if (Number(localStorage.getItem("quiz" + currQuiz + "Score")) < Number(currScore.innerText)) {
         localStorage.setItem("quiz" + currQuiz + "Score", currScore.innerText);
         finalScore.innerHTML = `New Score!! ${currScore.innerText}`
     } else {
         finalScore.innerHTML = `Score: ${currScore.innerText}`
     }
-    Array.from(data).forEach((e, i) => {
-        if (data[i] === data[data.length - 1]) {
-            return
-        }
-        total += data[i].points
+    Array.from(data.questions).forEach((e) => {
+        total += Number(e.points)
     })
-    if (Number(currScore.innerText) <= total / 3) {
-        motivation.innerHTML = 'Not Bad! Shall We Try Again??'
-    } if (Number(currScore.innerText) < total) {
+    if (Number(currScore.innerText) < total) {
         motivation.innerHTML = 'Good! But You Can Do Better!!'
-    } else {
+    } if (Number(currScore.innerText) <= total / 3) {
+        motivation.innerHTML = 'Not Bad! Shall We Try Again??'
+    } if (Number(currScore.innerText) === total) {
         motivation.innerHTML = 'Excellent!!!!!'
     }
 }

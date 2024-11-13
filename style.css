@@ -5,6 +5,14 @@
     --inactif : #F3F3E0;
 }
 
+.ACTIF {
+    background: var(--actif);
+}
+
+.INACTIF {
+    background: var(--inactif);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -452,7 +460,7 @@ button {
 .formatContainer {
     width: 100%;
     height: 100vh;
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -506,7 +514,7 @@ button {
 .QformatContainer {
     width: 100%;
     height: 100vh;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -586,6 +594,7 @@ button {
 #A1,
 #finish,
 #questionPts,
-#questionExplanation {
+#questionExplanation,
+.typing {
     display: none;
 }

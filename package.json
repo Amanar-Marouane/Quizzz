@@ -1,0 +1,16 @@
+{
+  "name": "quizzz",
+  "version": "1.0.0",
+  "main": "Add.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve-json": "json-server --watch quizes.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "json-server": "^1.0.0-beta.3"
+  }
+}

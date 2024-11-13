@@ -1,31 +1,36 @@
 let data = ''
 let i = 0
 let cardAdd = document.querySelector(".quizContainer")
+let quizIds = ''
 
 async function fetchData() {
-    while (true) {
-        const response = await fetch(`./quiz/quiz${i}.json`);
-        if (!response.ok) {
-            console.log(`No more files. Last file index is: ${i - 1}`);
-            break;
-        }
-        data = await response.json();
-        addCard()
-        i++;
+    const response = await fetch(`http://localhost:3000/quizes`);
+    if (!response.ok) {
+        console.log(`Error!!!`);
     }
+    data = await response.json();
+
+    data.forEach(e => {
+        // console.log(e.id)
+        let currInfo = e[0]
+        let currId = e.id
+        addCard(currInfo,currId)
+    })
+    Status()
     play()
 }
 fetchData()
 
-function addCard() {
+let index = 0
+function addCard(currInfo,currId) {
     const quizTemplate = `<div class="quiz">
                         <div class="info">
                             <img src="media/quiz-svgrepo-com.svg" alt="">
-                            <h3>${data[data.length - 1].title}</h3>
-                            <h3>Category: <span>${data[data.length - 1].category}</span></h3>
-                            <h3>Number of qustions: <span>${data[data.length - 1].questionsNum}</span></h3>
-                            <h3>Estimated Time: <span>${data[data.length - 1].tempMoy}</span></h3>
-                            <h3>Difficulty: <span>${data[data.length - 1].difficulty}</span></h3>
+                            <h3>${currInfo.title}</h3>
+                            <h3>Category: <span>${currInfo.category}</span></h3>
+                            <h3>Number of qustions: <span>${currInfo.questionsNum}</span></h3>
+                            <h3>Estimated Time: <span>${currInfo.tempMoy}</span></h3>
+                            <h3>Difficulty: <span>${currInfo.difficulty}</span></h3>
                         </div>
                         <div class="start">
                             <button>Enter</button>
@@ -33,11 +38,14 @@ function addCard() {
                     </div>`
 
     cardAdd.innerHTML += quizTemplate
+    console.log(currId);
+    
+    localStorage.setItem("Card" + index, currId)
+    index++
 }
 
 function play() {
     let quizToPlay = document.querySelectorAll(".start")
-    let index = 0
 
     Array.from(quizToPlay).forEach((e, index) => {
         e.addEventListener("click", () => {
@@ -46,3 +54,15 @@ function play() {
         })
     });
 }
+
+function Status() {
+    let allQuizes = document.querySelectorAll(".quiz")
+    console.log(allQuizes);
+
+    // Array.from(allQuizes).forEach((e, i) => {
+    //     let id = localStorage.getItem("Card" + i)
+    //     console.log(id);
+
+    // })
+}
+

@@ -1,4 +1,3 @@
-let select = document.querySelector("#quizType")
 let questionType = document.querySelector("#quizType")
 let titleInput = document.querySelector("#questionTitle")
 let qcm = document.querySelector(".qcm")
@@ -32,6 +31,12 @@ function selectOnChange() {
         Typing.style.display = 'none'
         questionExplanation.style.display = 'none'
         questionPts.style.display = 'none'
+        if (questionCounter >= 2) {
+            finish.style.display = 'block'
+        } if (questionCounter === 4) {
+            questionType.style.display = 'none'
+            return;
+        }
     }
     if (questionType.value === "QCM") {
         titleInput.style.display = 'block'
@@ -42,6 +47,7 @@ function selectOnChange() {
         next.style.display = 'block'
         questionExplanation.style.display = 'block'
         questionPts.style.display = 'block'
+        finish.style.display = 'none'
     }
     if (questionType.value === "Boolean") {
         titleInput.style.display = 'block'
@@ -52,6 +58,7 @@ function selectOnChange() {
         qcm.style.display = 'none'
         next.style.display = 'block'
         questionExplanation.style.display = 'block'
+        finish.style.display = 'none'
         questionPts.style.display = 'block'
     }
     if (questionType.value === "Typing") {
@@ -63,12 +70,9 @@ function selectOnChange() {
         typingInput.style.display = 'block'
         AddAnswer.style.display = "block"
         questionExplanation.style.display = 'block'
+        finish.style.display = 'none'
         questionPts.style.display = 'block'
     }
-}
-
-function boolValidation() {
-
 }
 
 let questionsNum = 0
@@ -92,25 +96,19 @@ infoDone.onclick = () => {
             "category": `${categoryInput}`,
             "questionsNum": questionsNum,
             "tempMoy": `${tempMoyInput}`,
-            "difficulty": `${difficultySelect}`
+            "difficulty": `${difficultySelect}`,
+            "questions": [],
+            "status": false
         }
         quiz.push(quizInfo);
-        console.log(quiz);
         formatContainer.style.display = 'none'
         QformatContainer.style.display = 'flex'
     }
 }
 
-let questionArrayBool = {
-    "quizType": `${questionType.value}`,
-    "question": `${titleInput.value}`,
-    "a": `True`,
-    "b": `False`,
-    "Correct": `${boolInput.value}`,
-    "Explanation": `${questionExplanation.value}`,
-    "points": `${questionPts.value}`
-}
-
+let questionCounter = 0;
+let answers = []
+let questions = []
 function questionVal() {
     if (questionType.value === "Boolean") {
         if (boolInput.value.toLowerCase() !== "true" && boolInput.value.toLowerCase() !== "false") {
@@ -128,12 +126,9 @@ function questionVal() {
                 "Explanation": `${questionExplanation.value}`,
                 "points": `${questionPts.value}`
             }
-            quiz.unshift(questionArrayBool)
-            questionType.value = ''
-            titleInput.value = ''
-            boolInput.value = ''
-            questionExplanation.value = ''
-            questionPts.value = ''
+            questions.push(questionArrayBool)
+            inputCleaner()
+            questionCounter++
             selectOnChange()
         }
     }
@@ -151,16 +146,9 @@ function questionVal() {
                     "Explanation": `${questionExplanation.value}`,
                     "points": `${questionPts.value}`
                 }
-                quiz.unshift(questionArrayQcm)
-                questionType.value = ''
-                titleInput.value = ''
-                a.value = ''
-                b.value = ''
-                c.value = ''
-                d.value = ''
-                correctQcm.value = ''
-                questionExplanation.value = ''
-                questionPts.value = ''
+                questions.push(questionArrayQcm)
+                inputCleaner()
+                questionCounter++
                 selectOnChange()
             } else {
                 correctQcm.value = ''
@@ -174,22 +162,54 @@ function questionVal() {
             let questionArrayType = {
                 "quizType": `${questionType.value}`,
                 "question": `${titleInput.value}`,
-                "Correct": `[${typingInput.value}]`,
                 "Explanation": `${questionExplanation.value}`,
+                "Correct": [],
                 "points": `${questionPts.value}`
             }
-            questionType.value = ''
-            titleInput.value = ''
-            typingInput.value = ''
-            questionExplanation.value = ''
-            questionPts.value = ''
+            answers.push(typingInput.value)
+            questions.push(questionArrayType)
+            answers.forEach(e => {
+                questions[questions.length - 1].Correct.push(e)
+            })
+            inputCleaner()
+            questionCounter++
             selectOnChange()
-            function addAnswer() {
-                quiz.unshift(questionArrayType)
-                typingInput.value = ''
-                typingInput.placeholder = 'Type Your Addational Answer'
-            }//button of add another answer
         }
     }
 }
 
+function addAnswer() {
+    answers.push(typingInput.value)
+    typingInput.value = ''
+    typingInput.placeholder = 'Type Your Addational Answer'
+}
+
+function inputCleaner() {
+    questionType.value = ''
+    titleInput.value = ''
+    typingInput.value = ''
+    questionExplanation.value = ''
+    questionPts.value = ''
+    a.value = ''
+    b.value = ''
+    c.value = ''
+    d.value = ''
+    correctQcm.value = ''
+    boolInput.value = ''
+}
+
+function finishQuiz() {
+    quiz[0].questionsNum = questionCounter;
+    questions.forEach(e => {
+        quiz[0].questions.push(e)
+    })
+    fetch("http://localhost:3000/quizes", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(quiz)
+    })
+    formatContainer.style.display = 'none'
+    QformatContainer.style.display = 'none'
+}
