@@ -11,26 +11,23 @@ async function fetchData() {
     data = await response.json();
 
     data.forEach(e => {
-        // console.log(e.id)
-        let currInfo = e[0]
-        let currId = e.id
-        addCard(currInfo,currId)
+        addCard(e)
+        Status(e)
     })
-    Status()
     play()
 }
 fetchData()
 
 let index = 0
-function addCard(currInfo,currId) {
+function addCard(e) {
     const quizTemplate = `<div class="quiz">
                         <div class="info">
                             <img src="media/quiz-svgrepo-com.svg" alt="">
-                            <h3>${currInfo.title}</h3>
-                            <h3>Category: <span>${currInfo.category}</span></h3>
-                            <h3>Number of qustions: <span>${currInfo.questionsNum}</span></h3>
-                            <h3>Estimated Time: <span>${currInfo.tempMoy}</span></h3>
-                            <h3>Difficulty: <span>${currInfo.difficulty}</span></h3>
+                            <h3>${e.title}</h3>
+                            <h3>Category: <span>${e.category}</span></h3>
+                            <h3>Number of qustions: <span>${e.questionsNum}</span></h3>
+                            <h3>Estimated Time: <span>${e.tempMoy}</span></h3>
+                            <h3>Difficulty: <span>${e.difficulty}</span></h3>
                         </div>
                         <div class="start">
                             <button>Enter</button>
@@ -38,9 +35,8 @@ function addCard(currInfo,currId) {
                     </div>`
 
     cardAdd.innerHTML += quizTemplate
-    console.log(currId);
-    
-    localStorage.setItem("Card" + index, currId)
+
+    localStorage.setItem("Card" + index, e.id)
     index++
 }
 
@@ -55,14 +51,48 @@ function play() {
     });
 }
 
-function Status() {
-    let allQuizes = document.querySelectorAll(".quiz")
-    console.log(allQuizes);
+function Status(e) {
+    let myQuiz = ''
+    let allQuizes = ''
+    allQuizes = document.querySelectorAll(".quiz")
+    myQuiz = allQuizes[allQuizes.length - 1]
 
-    // Array.from(allQuizes).forEach((e, i) => {
-    //     let id = localStorage.getItem("Card" + i)
-    //     console.log(id);
+    if (e.status === false) {
+        myQuiz.style.background = 'var(--inactif)'
+    } else {
+        myQuiz.style.background = 'var(--actif)'
+    }
 
-    // })
+    allQuizes.forEach((j, i) => {
+        let id = localStorage.getItem("Card" + i)
+        console.log(id);
+        j.querySelector("img").onclick = () => {
+            if (e.status === false) {
+                console.log("it was false");
+                e.status = true
+                Status(e)
+            } else {
+                console.log("it was true");
+                e.status = false
+                Status(e)
+            }
+            fetch(`http://localhost:3000/quizes/722d`, {
+                method: "PATCH",
+                headers: {
+                    'Content-Type': "application/json"
+                },
+                body: JSON.stringify({
+                    "status": true
+                })
+            })
+        }
+    })
+}
+
+
+function StatusUpdater() {
+    console.log("event");
+
+
 }
 

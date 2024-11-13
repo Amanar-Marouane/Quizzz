@@ -1,3 +1,33 @@
 {
-  "quizes": []
+  "quizes": [
+    {
+      "id": "722d",
+      "title": "iouyt",
+      "category": "m;lkugyuft",
+      "questionsNum": 2,
+      "tempMoy": ":!lmkjhgf",
+      "difficulty": "Easy",
+      "questions": [
+        {
+          "quizType": "Boolean",
+          "question": "llkjjhg",
+          "a": "True",
+          "b": "False",
+          "Correct": "true",
+          "Explanation": ";cv",
+          "points": "0"
+        },
+        {
+          "quizType": "Boolean",
+          "question": "ljhgf",
+          "a": "True",
+          "b": "False",
+          "Correct": "true",
+          "Explanation": "lkljhg",
+          "points": "50"
+        }
+      ],
+      "status": true
+    }
+  ]
 }

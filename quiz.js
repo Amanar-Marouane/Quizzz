@@ -64,7 +64,7 @@ function global() {
 }
 
 function questionScreen() {
-    if (i <= data.questions.length) {
+    if (i <= data.questions.length - 1) {
         let text = document.querySelector(".text");
         let question = data.questions[i].question
         text.querySelector("h1").textContent = question
@@ -247,7 +247,7 @@ function handleTypingClick() {
                 clearInterval(Timer);
                 timer.innerText = 30;
                 i++;
-                if (i === data.questions.length - 1) {
+                if (i === data.questions.length) {
                     result.style.display = 'flex'
                 }
                 global();
