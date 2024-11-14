@@ -27,7 +27,7 @@
           "points": "50"
         }
       ],
-      "status": false
+      "status": true
     },
     {
       "id": "c1bc",
@@ -98,38 +98,6 @@
             "whyy"
           ],
           "points": "20"
-        }
-      ],
-      "status": false
-    },
-    {
-      "id": "71a1",
-      "title": "00111",
-      "category": "lol",
-      "questionsNum": 2,
-      "tempMoy": "5000000000000000000000000000000000",
-      "difficulty": "Medium",
-      "questions": [
-        {
-          "quizType": "QCM",
-          "question": "fdqf",
-          "a": "yes",
-          "b": "no",
-          "c": "yes ",
-          "d": "no",
-          "Correct": "no",
-          "Explanation": "yes",
-          "points": "15"
-        },
-        {
-          "quizType": "Typing",
-          "question": "?",
-          "Explanation": "//",
-          "Correct": [
-            "!",
-            "**"
-          ],
-          "points": "6"
         }
       ],
       "status": false

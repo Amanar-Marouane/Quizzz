@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');
 
 :root {
-    --actif : #608BC1;
-    --inactif : #F3F3E0;
+    --actif: #608BC1;
+    --inactif: #F3F3E0;
 }
 
 .ACTIF {
@@ -154,7 +154,7 @@ button {
     z-index: 10;
 }
 
-.addQuiz svg{
+.addQuiz svg {
     width: 5em;
     height: fit-content;
     border-radius: 50px;
@@ -273,7 +273,7 @@ button {
     height: 40vh;
     display: none;
     justify-content: space-around;
-    align-items:center;
+    align-items: center;
 }
 
 .quizInterface .questionScreen .question .points h2 {
@@ -363,7 +363,7 @@ button {
     color: rgba(0, 0, 0, 0.8);
 }
 
-.quizInterface .typing .input svg{
+.quizInterface .typing .input svg {
     width: 60px;
     height: fit-content;
     rotate: 45deg;
@@ -599,4 +599,85 @@ button {
 #questionExplanation,
 .typing {
     display: none;
+}
+
+@media (max-width: 1410px) {
+    .S1 .quizContainer {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 5em;
+        width: fit-content;
+    }
+}
+
+@media (max-width: 950px) {
+    .S1 .quizContainer {
+        grid-template-columns: 1fr
+    }
+
+    .QuickAccess {
+        width: 20%;
+    }
+
+    .formatContainer .format {
+        width: 60%;
+        height: 80%;
+    }
+}
+
+@media (max-width: 400px) {
+    .QuickAccess {
+        width: 40%;
+    }
+
+    .S1 .quizContainer .quiz {
+        width: 18em;
+        height: 22em;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: var(--actif);
+        border-radius: 20px;
+        padding: 1em;
+        box-shadow: 5px 5px 10px;
+    }
+
+    .formatContainer .format {
+        width: 95%;
+        height: 80%;
+    }
+
+    .QformatContainer .Qformat {
+        width: 95%;
+        height: 80%;
+    }
+}
+
+@media (max-width: 1123px) {
+    .formatContainer .format {
+        width: 70%;
+        height: 80%;
+    }
+
+    .QformatContainer .Qformat {
+        width: 70%;
+        height: 95%;
+        text-align: center;
+    }
+
+    .result .interface {
+        width: 80%;
+        height: 90%;
+        row-gap: 3em;
+        text-align: center;
+    }
+    
+    .result .interface button {
+        padding: .8em 3em;
+        font-size: 1.2em;
+    }
+
+    .explanation {
+        min-width: 80%;
+        min-height: 60vh;
+    }
 }
