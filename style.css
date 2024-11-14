@@ -129,6 +129,7 @@ button {
 
 .S1 .quizContainer .quiz img {
     width: 50px;
+    cursor: pointer;
 }
 
 .S1 .quizContainer .quiz .info {

@@ -122,7 +122,7 @@ function questionScreen() {
         currQuestion.innerText = i + 1
         totalQuestions.innerText = data.questions.length
 
-        let process = data.questions.length - 1
+        let process = data.questions.length
         let bar = document.getElementById("progress")
         let currProcess = (i + 1) / process * 100
         bar.style.width = `${currProcess}%`
@@ -173,7 +173,7 @@ function answerEff() {
                 }, 500)
                 setTimeout(() => {
                     explanation.style.display = 'none'
-                }, explanationDelay);
+                }, 2000);
             }
             Array.from(Choice).forEach((r) => {
                 let textToCom = r.textContent
@@ -286,7 +286,7 @@ function resultScreen() {
     blurAgain.style.filter = 'blur(10px)'
     title.innerHTML = data.title
     C_T.innerHTML = `${correctAnswers}/${data.questions.length} Correct Answers!!`
-    p_.innerHTML = `${correctAnswers / data.questions.length * 100}%`
+    p_.innerHTML = `${(correctAnswers / data.questions.length * 100).toFixed(2)}%`
     if (Number(localStorage.getItem("quiz" + currQuiz + "Score")) < Number(currScore.innerText)) {
         localStorage.setItem("quiz" + currQuiz + "Score", currScore.innerText);
         finalScore.innerHTML = `New Score!! ${currScore.innerText}`

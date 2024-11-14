@@ -12,9 +12,10 @@ async function fetchData() {
 
     data.forEach(e => {
         addCard(e)
-        Status(e)
+        Status0(e)
     })
     play()
+    statusChanger()
 }
 fetchData()
 
@@ -33,8 +34,11 @@ function addCard(e) {
                             <button>Enter</button>
                         </div>
                     </div>`
-
-    cardAdd.innerHTML += quizTemplate
+    if (location.pathname === "/C:/Users/lenovo/Desktop/My-Git-Projects/Quizzz/home.html" && e.status === true) {
+        cardAdd.innerHTML += quizTemplate
+    } if (location.pathname !== "/C:/Users/lenovo/Desktop/My-Git-Projects/Quizzz/home.html") {
+        cardAdd.innerHTML += quizTemplate
+    }
 
     localStorage.setItem("Card" + index, e.id)
     index++
@@ -51,48 +55,64 @@ function play() {
     });
 }
 
-function Status(e) {
-    let myQuiz = ''
-    let allQuizes = ''
-    allQuizes = document.querySelectorAll(".quiz")
-    myQuiz = allQuizes[allQuizes.length - 1]
-
-    if (e.status === false) {
-        myQuiz.style.background = 'var(--inactif)'
-    } else {
-        myQuiz.style.background = 'var(--actif)'
-    }
-
-    allQuizes.forEach((j, i) => {
-        let id = localStorage.getItem("Card" + i)
-        console.log(id);
-        j.querySelector("img").onclick = () => {
-            if (e.status === false) {
-                console.log("it was false");
-                e.status = true
-                Status(e)
-            } else {
-                console.log("it was true");
-                e.status = false
-                Status(e)
-            }
-            fetch(`http://localhost:3000/quizes/722d`, {
-                method: "PATCH",
-                headers: {
-                    'Content-Type': "application/json"
-                },
-                body: JSON.stringify({
-                    "status": true
-                })
-            })
+let myQuiz = ''
+let allQuizes = ''
+function Status0(e) {
+    if (location.pathname !== "/C:/Users/lenovo/Desktop/My-Git-Projects/Quizzz/home.html") {
+        allQuizes = document.querySelectorAll(".quiz")
+        myQuiz = allQuizes[allQuizes.length - 1]
+        if (e.status === false) {
+            myQuiz.style.background = 'var(--inactif)'
+        } else {
+            myQuiz.style.background = 'var(--actif)'
         }
-    })
+    }
 }
 
-
-function StatusUpdater() {
-    console.log("event");
-
-
+function Status1(e, x) {
+    if (location.pathname !== "/C:/Users/lenovo/Desktop/My-Git-Projects/Quizzz/home.html") {
+        if (e.status === false) {
+            x.style.background = 'var(--inactif)'
+        } else {
+            x.style.background = 'var(--actif)'
+        }
+    }
 }
 
+function statusChanger() {
+    if (location.pathname !== "/C:/Users/lenovo/Desktop/My-Git-Projects/Quizzz/home.html") {
+        allQuizes = document.querySelectorAll(".quiz")
+        console.log(allQuizes);
+
+        allQuizes.forEach((j, i) => {
+            let id = localStorage.getItem("Card" + i)
+            j.querySelector("img").onclick = () => {
+                if (data[i].status === false) {
+                    data[i].status = true
+                    console.log(data[i].id, data[i].status);
+                    Status1(data[i], j)
+                } else {
+                    data[i].status = false
+                    console.log(data[i].id, data[i].status);
+                    Status1(data[i], j)
+                }
+                fetch(`http://localhost:3000/quizes/${data[i].id}`, {
+                    method: "PATCH",
+                    headers: {
+                        'Content-Type': "application/json"
+                    },
+                    body: JSON.stringify({
+                        "status": data[i].status
+                    })
+                })
+            }
+        })
+    }
+}
+
+let addQuiz = document.querySelector(".addQuiz")
+if (location.pathname !== "/C:/Users/lenovo/Desktop/My-Git-Projects/Quizzz/home.html") {
+    addQuiz.onclick = () => {
+        location.href = "Add.html"
+    }
+}

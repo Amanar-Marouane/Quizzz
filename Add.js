@@ -209,7 +209,9 @@ function finishQuiz() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(quiz[0])
-    })
-    formatContainer.style.display = 'none'
-    QformatContainer.style.display = 'none'
+    }).then(data => {
+        location.href = "admin.html"
+    }
+    )
+
 }
