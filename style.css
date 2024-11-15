@@ -52,9 +52,15 @@ button {
     align-items: center;
 }
 
-.QuickAccess img {
+.QuickAccess svg {
     width: 40px;
+    height: fit-content;
     padding: .3em;
+}
+
+.QuickAccess svg:hover {
+    transform: scale(1.2);
+    transition: transform .3s ease-in-out;
 }
 
 .S1 {
@@ -129,6 +135,7 @@ button {
 }
 
 .quiz:hover {
+    transition: transform .3s ease-in-out;
     transform: scale(1.05);
 }
 
@@ -138,8 +145,14 @@ button {
 }
 
 .quiz .info img {
+    cursor: pointer;
     width: 50px;
     margin-bottom: 15px;
+}
+
+.quiz .info img:hover {
+    transform: scale(1.05);
+    transition: transform .3s ease-in-out;
 }
 
 .quiz .info h3 {
