@@ -1,106 +1,229 @@
 {
   "quizes": [
     {
-      "id": "722d",
-      "title": "iouyt",
-      "category": "m;lkugyuft",
-      "questionsNum": 2,
-      "tempMoy": ":!lmkjhgf",
+      "id": "quiz1",
+      "title": "JavaScript Basics",
+      "category": "Programming",
+      "questionsNum": 5,
+      "tempMoy": "Intermediate",
       "difficulty": "Easy",
       "questions": [
         {
-          "quizType": "Boolean",
-          "question": "llkjjhg",
-          "a": "True",
-          "b": "False",
-          "Correct": "true",
-          "Explanation": ";cv",
-          "points": "0"
+          "quizType": "QCM",
+          "question": "What is JavaScript mainly used for?",
+          "a": "Data analysis",
+          "b": "Web development",
+          "c": "Machine learning",
+          "d": "Desktop applications",
+          "Correct": "Web development",
+          "Explanation": "JavaScript is primarily used to create interactive features on web pages.",
+          "points": "10"
+        },
+        {
+          "quizType": "Typing",
+          "question": "Name a popular JavaScript framework.",
+          "Explanation": "Popular JavaScript frameworks include React, Angular, and Vue.",
+          "Correct": [
+            "React",
+            "Angular",
+            "Vue"
+          ],
+          "points": "20"
         },
         {
           "quizType": "Boolean",
-          "question": "ljhgf",
+          "question": "Is JavaScript a statically-typed language?",
           "a": "True",
           "b": "False",
-          "Correct": "true",
-          "Explanation": "lkljhg",
-          "points": "50"
+          "Correct": "False",
+          "Explanation": "JavaScript is dynamically-typed, meaning types are determined at runtime.",
+          "points": "10"
+        },
+        {
+          "quizType": "QCM",
+          "question": "What keyword is used to declare a constant in JavaScript?",
+          "a": "let",
+          "b": "var",
+          "c": "const",
+          "d": "function",
+          "Correct": "const",
+          "Explanation": "The 'const' keyword is used to declare constants in JavaScript.",
+          "points": "10"
+        },
+        {
+          "quizType": "Typing",
+          "question": "What is the file extension for JavaScript files?",
+          "Explanation": "JavaScript files use the .js extension.",
+          "Correct": [
+            "js",
+            ".js"
+          ],
+          "points": "10"
         }
       ],
       "status": true
     },
     {
-      "id": "c1bc",
-      "title": "jkbjlm",
-      "category": "gjhkl",
-      "questionsNum": 3,
-      "tempMoy": "gvvhjk",
-      "difficulty": "Easy",
+      "id": "quiz2",
+      "title": "Basic Math",
+      "category": "Mathematics",
+      "questionsNum": 7,
+      "tempMoy": "Beginner",
+      "difficulty": "Medium",
       "questions": [
         {
           "quizType": "QCM",
-          "question": "kjjkm",
-          "a": "a",
-          "b": "b",
-          "c": "c",
-          "d": "d",
-          "Correct": "d",
-          "Explanation": "sfsqd",
-          "points": "20"
-        },
-        {
-          "quizType": "Typing",
-          "question": "why",
-          "Explanation": "whyyyyyyyyyy",
-          "Correct": [
-            "why",
-            "whyy"
-          ],
-          "points": "50"
+          "question": "What is 5 + 7?",
+          "a": "10",
+          "b": "12",
+          "c": "15",
+          "d": "14",
+          "Correct": "12",
+          "Explanation": "5 + 7 equals 12.",
+          "points": "5"
         },
         {
           "quizType": "Boolean",
-          "question": "jkkljkm",
+          "question": "Is 15 a prime number?",
           "a": "True",
           "b": "False",
-          "Correct": "true",
-          "Explanation": "kkdbjlc",
-          "points": "40"
-        }
-      ],
-      "status": false
-    },
-    {
-      "id": "944d",
-      "title": "test fr",
-      "category": "jhgklml",
-      "questionsNum": 2,
-      "tempMoy": "gghjkl",
-      "difficulty": "Easy",
-      "questions": [
+          "Correct": "False",
+          "Explanation": "15 is not a prime number because it has divisors other than 1 and itself.",
+          "points": "10"
+        },
         {
           "quizType": "QCM",
-          "question": "uuk",
-          "a": "a",
-          "b": "b",
-          "c": "c",
-          "d": "d",
-          "Correct": "a",
-          "Explanation": "jbkljm",
-          "points": "40"
+          "question": "What is the square root of 16?",
+          "a": "4",
+          "b": "5",
+          "c": "6",
+          "d": "3",
+          "Correct": "4",
+          "Explanation": "The square root of 16 is 4.",
+          "points": "15"
         },
         {
           "quizType": "Typing",
-          "question": "why",
-          "Explanation": "why",
+          "question": "What is 9 * 3?",
+          "Explanation": "Multiplying 9 by 3 gives 27.",
           "Correct": [
-            "why",
-            "whyy"
+            "27"
           ],
+          "points": "20"
+        },
+        {
+          "quizType": "QCM",
+          "question": "What is 12 - 8?",
+          "a": "2",
+          "b": "3",
+          "c": "4",
+          "d": "5",
+          "Correct": "4",
+          "Explanation": "12 - 8 equals 4.",
+          "points": "5"
+        },
+        {
+          "quizType": "Boolean",
+          "question": "Is zero a natural number?",
+          "a": "True",
+          "b": "False",
+          "Correct": "True",
+          "Explanation": "In some definitions, zero is considered a natural number.",
+          "points": "10"
+        },
+        {
+          "quizType": "Typing",
+          "question": "What is the sum of angles in a triangle?",
+          "Explanation": "The sum of angles in a triangle is 180 degrees.",
+          "Correct": [
+            "180"
+          ],
+          "points": "10"
+        }
+      ],
+      "status": true
+    },
+    {
+      "id": "quiz3",
+      "title": "General Knowledge",
+      "category": "Trivia",
+      "questionsNum": 10,
+      "tempMoy": "Varied",
+      "difficulty": "Hard",
+      "questions": [
+        {
+          "quizType": "QCM",
+          "question": "Which planet is known as the Red Planet?",
+          "a": "Earth",
+          "b": "Mars",
+          "c": "Jupiter",
+          "d": "Saturn",
+          "Correct": "Mars",
+          "Explanation": "Mars is called the Red Planet due to its reddish appearance.",
+          "points": "15"
+        },
+        {
+          "quizType": "Typing",
+          "question": "Who wrote 'Romeo and Juliet'?",
+          "Explanation": "William Shakespeare wrote 'Romeo and Juliet'.",
+          "Correct": [
+            "Shakespeare",
+            "William Shakespeare"
+          ],
+          "points": "25"
+        },
+        {
+          "quizType": "Boolean",
+          "question": "Is the Great Wall of China visible from space?",
+          "a": "True",
+          "b": "False",
+          "Correct": "False",
+          "Explanation": "The Great Wall is not visible to the naked eye from space.",
+          "points": "10"
+        },
+        {
+          "quizType": "QCM",
+          "question": "What is the capital of Japan?",
+          "a": "Seoul",
+          "b": "Beijing",
+          "c": "Tokyo",
+          "d": "Bangkok",
+          "Correct": "Tokyo",
+          "Explanation": "Tokyo is the capital of Japan.",
+          "points": "20"
+        },
+        {
+          "quizType": "Typing",
+          "question": "How many continents are there?",
+          "Explanation": "There are seven continents.",
+          "Correct": [
+            "7",
+            "seven"
+          ],
+          "points": "10"
+        },
+        {
+          "quizType": "QCM",
+          "question": "Which animal is known as the King of the Jungle?",
+          "a": "Tiger",
+          "b": "Elephant",
+          "c": "Lion",
+          "d": "Giraffe",
+          "Correct": "Lion",
+          "Explanation": "The lion is often called the King of the Jungle.",
+          "points": "15"
+        },
+        {
+          "quizType": "Boolean",
+          "question": "Is Australia both a country and a continent?",
+          "a": "True",
+          "b": "False",
+          "Correct": "True",
+          "Explanation": "Australia is both a country and a continent.",
           "points": "20"
         }
       ],
-      "status": false
+      "status": true
     }
   ]
 }

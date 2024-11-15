@@ -131,6 +131,11 @@ function questionScreen() {
         return
     }
 }
+let timerFromStart = 0
+function Timer2() {
+    timerFromStart++
+}
+setInterval(Timer2,1000)
 
 function Timer() {
     if (i < data.questions.length) {
@@ -274,6 +279,7 @@ function tryAgain() {
 
 let title = document.querySelector("#quizName")
 let finalScore = document.querySelector("#finalScore")
+let totalTime = document.querySelector("#totalTime")
 let total = 0;
 let motivation = document.querySelector("#motivation")
 let C_T = document.querySelector("#C_T")
@@ -282,16 +288,18 @@ let ScreenBlur = document.querySelector('.quizInterface')
 let blurAgain = document.querySelector(".getBack")
 
 function resultScreen() {
+    clearInterval(Timer2)
     ScreenBlur.style.filter = 'blur(10px)'
     blurAgain.style.filter = 'blur(10px)'
     title.innerHTML = data.title
+    totalTime.innerHTML = `Time spent: ${timerFromStart}sec`
     C_T.innerHTML = `${correctAnswers}/${data.questions.length} Correct Answers!!`
-    p_.innerHTML = `${(correctAnswers / data.questions.length * 100).toFixed(2)}%`
+    p_.innerHTML = `Succes rate: ${(correctAnswers / data.questions.length * 100).toFixed(2)}%`
     if (Number(localStorage.getItem("quiz" + currQuiz + "Score")) < Number(currScore.innerText)) {
         localStorage.setItem("quiz" + currQuiz + "Score", currScore.innerText);
-        finalScore.innerHTML = `New Score!! ${currScore.innerText}`
+        finalScore.innerHTML = `New Score!! ${currScore.innerText} points`
     } else {
-        finalScore.innerHTML = `Score: ${currScore.innerText}`
+        finalScore.innerHTML = `Score: ${currScore.innerText} points`
     }
     Array.from(data.questions).forEach((e) => {
         total += Number(e.points)
