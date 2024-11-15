@@ -1,7 +1,6 @@
 let data = ''
 let i = 0
 let cardAdd = document.querySelector(".quizContainer")
-let quizIds = ''
 
 async function fetchData() {
     const response = await fetch(`http://localhost:3000/quizes`);

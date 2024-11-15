@@ -115,36 +115,68 @@ button {
     column-gap: 1em;
 }
 
-.S1 .quizContainer .quiz {
-    width: 25em;
-    height: 18em;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.quiz {
     background-color: var(--actif);
-    border-radius: 20px;
-    padding: 1em;
-    box-shadow: 5px 5px 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    transition: .3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.S1 .quizContainer .quiz img {
+.quiz:hover {
+    transform: scale(1.05);
+}
+
+.quiz .info {
+    color: #333;
+    text-align: left;
+}
+
+.quiz .info img {
     width: 50px;
-    cursor: pointer;
+    margin-bottom: 15px;
 }
 
-.S1 .quizContainer .quiz .info {
-    width: 60%;
-    line-height: 35px;
+.quiz .info h3 {
+    font-size: 14px;
+    font-weight: normal;
+    margin: 5px 0;
+    color: #555;
 }
 
-.S1 .quizContainer .quiz .start button {
-    padding: .5em 3em;
-    border-radius: 15px;
-    background-color: #CBDCEB;
-    font-weight: 600;
-    border: #000 1px solid;
+.quiz .info h3 span {
+    font-weight: bold;
+    color: #333;
+}
+
+.quiz .info h3:not(:last-child) {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.quiz .start {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.quiz .start button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 14px;
     cursor: pointer;
-    box-shadow: 2px 2px 5px;
+    transition: background-color 0.3s ease;
+}
+
+.quiz .start button:hover {
+    background-color: #0056b3;
 }
 
 .addQuiz {
@@ -680,4 +712,45 @@ button {
         min-width: 80%;
         min-height: 60vh;
     }
+}
+
+.quizC {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.quizC:hover {
+    transform: scale(1.05);
+}
+
+.quizC .info {
+    color: #333;
+    text-align: left;
+}
+
+.quizC .info img {
+    width: 50px;
+    margin-bottom: 15px;
+}
+
+.quizC .info h3 {
+    font-size: 14px;
+    font-weight: normal;
+    margin: 5px 0;
+    color: #555;
+}
+
+.quizC .info h3:not(:last-child) {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.quizC .info h3:hover {
+    color: #007BFF;
+    cursor: pointer;
 }

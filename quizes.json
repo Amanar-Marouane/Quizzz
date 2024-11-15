@@ -1,7 +1,7 @@
 {
   "quizes": [
     {
-      "id": "quiz1",
+      "id": "2xm9",
       "title": "JavaScript Basics",
       "category": "Programming",
       "questionsNum": 5,
@@ -61,10 +61,10 @@
           "points": "10"
         }
       ],
-      "status": true
+      "status": false
     },
     {
-      "id": "quiz2",
+      "id": "cl43",
       "title": "Basic Math",
       "category": "Mathematics",
       "questionsNum": 7,
@@ -144,7 +144,7 @@
       "status": true
     },
     {
-      "id": "quiz3",
+      "id": "dk15",
       "title": "General Knowledge",
       "category": "Trivia",
       "questionsNum": 10,
@@ -223,7 +223,7 @@
           "points": "20"
         }
       ],
-      "status": true
+      "status": false
     }
   ]
 }

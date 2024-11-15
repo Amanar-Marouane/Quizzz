@@ -135,7 +135,7 @@ let timerFromStart = 0
 function Timer2() {
     timerFromStart++
 }
-setInterval(Timer2,1000)
+setInterval(Timer2, 1000)
 
 function Timer() {
     if (i < data.questions.length) {
@@ -269,8 +269,8 @@ function handleTypingClick() {
     answerInput.style.transition = 'background .5s';
 }
 
-if (localStorage.getItem("quiz" + currQuiz + "Score") === null) {
-    localStorage.setItem("quiz" + currQuiz + "Score", 0)
+if (localStorage.getItem("Hquiz" + currQuiz + "Score") === null) {
+    localStorage.setItem("Hquiz" + currQuiz + "Score", 0)
 }
 
 function tryAgain() {
@@ -286,21 +286,62 @@ let C_T = document.querySelector("#C_T")
 let p_ = document.querySelector("#p_")
 let ScreenBlur = document.querySelector('.quizInterface')
 let blurAgain = document.querySelector(".getBack")
+let totalAttempts = 0
+if (localStorage.getItem("totalAttemptsOf" + currQuiz) !== null) {
+    totalAttempts = localStorage.getItem("totalAttemptsOf" + currQuiz)
+} else {
+    localStorage.setItem("totalAttemptsOf" + currQuiz, totalAttempts)
+}
+
+let TotalTime = 0
+if (localStorage.getItem("TotalTimeOf"+currQuiz) !== null) {
+    TotalTime = Number(localStorage.getItem("TotalTimeOf"+currQuiz))
+} else {
+    localStorage.setItem("TotalTimeOf"+currQuiz, TotalTime)
+}
+
+let SuccesNumber = 0;
 
 function resultScreen() {
+    totalAttempts++
+    localStorage.setItem("totalAttemptsOf" + currQuiz, totalAttempts)
     clearInterval(Timer2)
     ScreenBlur.style.filter = 'blur(10px)'
     blurAgain.style.filter = 'blur(10px)'
+
     title.innerHTML = data.title
     totalTime.innerHTML = `Time spent: ${timerFromStart}sec`
+    TotalTime += timerFromStart
+    localStorage.setItem("TotalTimeOf"+currQuiz, TotalTime)
+
     C_T.innerHTML = `${correctAnswers}/${data.questions.length} Correct Answers!!`
     p_.innerHTML = `Succes rate: ${(correctAnswers / data.questions.length * 100).toFixed(2)}%`
-    if (Number(localStorage.getItem("quiz" + currQuiz + "Score")) < Number(currScore.innerText)) {
-        localStorage.setItem("quiz" + currQuiz + "Score", currScore.innerText);
+    if (correctAnswers / data.questions.length * 100 >= 50) {
+        SuccesNumber++
+    }
+    if (localStorage.getItem("SuccesNumber"+currQuiz) !== null) {
+        SuccesNumber+= Number(localStorage.getItem("SuccesNumber"+currQuiz)) 
+        localStorage.setItem("SuccesNumber"+currQuiz, SuccesNumber)
+    }else {
+        localStorage.setItem("SuccesNumber"+currQuiz, SuccesNumber)
+    }
+
+    if (Number(localStorage.getItem("Hquiz" + currQuiz + "Score")) < Number(currScore.innerText)) {
+        localStorage.setItem("Hquiz" + currQuiz + "Score", currScore.innerText);
         finalScore.innerHTML = `New Score!! ${currScore.innerText} points`
     } else {
         finalScore.innerHTML = `Score: ${currScore.innerText} points`
     }
+    if (Number(localStorage.getItem("Hquiz" + currQuiz + "Score")) > Number(currScore.innerText)) {
+        localStorage.setItem("Mquiz" + currQuiz + "Score", currScore.innerText)
+    }
+    if (localStorage.getItem("TScoreOf" + currQuiz) !== null) {
+        let Tscore = Number(currScore.innerText) + Number(localStorage.getItem("TScoreOf" + currQuiz))
+        localStorage.setItem("TScoreOf" + currQuiz, Tscore)
+    } if (localStorage.getItem("TScoreOf" + currQuiz) === null) {
+        localStorage.setItem("TScoreOf" + currQuiz, currScore.innerText)
+    }
+
     Array.from(data.questions).forEach((e) => {
         total += Number(e.points)
     })
