@@ -18,10 +18,9 @@ async function fetchData() {
 }
 fetchData()
 
-let index = 0
 function addCard(e) {
     const quizTemplate = `<div class="quiz">
-                        <div class="info">
+                        <div class="info" id="${e.id}">
                             <img src="media/quiz-svgrepo-com.svg" alt="">
                             <h3>${e.title}</h3>
                             <h3>Category: <span>${e.category}</span></h3>
@@ -38,18 +37,17 @@ function addCard(e) {
     } if (location.pathname !== "/C:/Users/lenovo/Desktop/My-Git-Projects/Quizzz/home.html") {
         cardAdd.innerHTML += quizTemplate
     }
-
-    localStorage.setItem("Card" + index, e.id)
-    index++
 }
 
 function play() {
     let quizToPlay = document.querySelectorAll(".start")
 
-    Array.from(quizToPlay).forEach((e, index) => {
+    Array.from(quizToPlay).forEach((e) => {
         e.addEventListener("click", () => {
-            localStorage.setItem("quizToPlay", index)
+            let ID = e.parentElement.querySelector(".info").id
+            localStorage.setItem("quizToPlay", ID)
             location.href = `quizInterface.html`
+            
         })
     });
 }

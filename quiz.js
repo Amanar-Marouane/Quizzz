@@ -3,8 +3,7 @@ let currQuiz = ''
 if (localStorage.getItem("quizToPlay") === null) {
     location.href = `admin.html`
 } else {
-    index = localStorage.getItem("quizToPlay")
-    currQuiz = localStorage.getItem("Card" + index)
+    currQuiz = localStorage.getItem("quizToPlay")
 }
 const url = `http://localhost:3000/quizes/${currQuiz}/`
 let response = ''
@@ -51,6 +50,8 @@ let correctAnswers = 0;
 async function fetchData() {
     response = await fetch(url)
     data = await response.json()
+    console.log(data);
+    
     global()
 }
 fetchData()
