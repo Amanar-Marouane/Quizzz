@@ -15,8 +15,23 @@ async function fetchData() {
     })
     play()
     statusChanger()
+    IdToMod()
 }
 fetchData()
+
+function IdToMod() {
+    if (location.pathname !== "/C:/Users/lenovo/Desktop/My-Git-Projects/Quizzz/home.html") {
+        cardAdd.querySelectorAll(".quiz").forEach(e => {
+            let title = e.querySelector(".info").querySelector("h3")
+            let IdToMod = e.querySelector(".info").id
+            title.style.cursor = "pointer"
+            title.addEventListener("click", () => {
+                location.href = 'modification.html'
+                localStorage.setItem("CardToMod", IdToMod)
+            })
+        })
+    }
+}
 
 function addCard(e) {
     const quizTemplate = `<div class="quiz">
@@ -47,7 +62,7 @@ function play() {
             let ID = e.parentElement.querySelector(".info").id
             localStorage.setItem("quizToPlay", ID)
             location.href = `quizInterface.html`
-            
+
         })
     });
 }
@@ -79,7 +94,6 @@ function Status1(e, x) {
 function statusChanger() {
     if (location.pathname !== "/C:/Users/lenovo/Desktop/My-Git-Projects/Quizzz/home.html") {
         allQuizes = document.querySelectorAll(".quiz")
-        console.log(allQuizes);
 
         allQuizes.forEach((j, i) => {
             let id = localStorage.getItem("Card" + i)

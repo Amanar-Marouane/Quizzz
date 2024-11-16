@@ -61,7 +61,7 @@
           "points": "10"
         }
       ],
-      "status": true
+      "status": false
     },
     {
       "id": "cl43",
@@ -88,7 +88,7 @@
           "a": "True",
           "b": "False",
           "Correct": "False",
-          "Explanation": "15 is not a prime number because it has divisors other than 1 and itself.",
+          "Explanation": "15 is not a prime number because it has divisors other than 1 and itself (3 and 5).",
           "points": "10"
         },
         {
@@ -104,12 +104,10 @@
         },
         {
           "quizType": "Typing",
-          "question": "What is 9 * 3?",
-          "Explanation": "Multiplying 9 by 3 gives 27.",
-          "Correct": [
-            "27"
-          ],
-          "points": "20"
+          "question": "What is the square root of 16?",
+          "Explanation": "The square root of 16 is 4.",
+          "Correct": "4",
+          "points": "15"
         },
         {
           "quizType": "QCM",
@@ -132,16 +130,25 @@
           "points": "10"
         },
         {
-          "quizType": "Typing",
-          "question": "What is the sum of angles in a triangle?",
-          "Explanation": "The sum of angles in a triangle is 180 degrees.",
-          "Correct": [
-            "180"
-          ],
+          "quizType": "Boolean",
+          "question": "Is zero a natural number?",
+          "Explanation": "In some definitions, zero is considered a natural number.",
+          "a": "True",
+          "b": "False",
+          "Correct": "True",
           "points": "10"
         }
       ],
-      "status": false
+      "status": true,
+      "question": "What is 5 + 7?",
+      "a": "10",
+      "b": "12",
+      "c": "15",
+      "d": "14",
+      "Correct": "12",
+      "Explanation": "5 + 7 equals 12.",
+      "points": "5",
+      "quizType": "QCM"
     },
     {
       "id": "dk15",
@@ -223,7 +230,7 @@
           "points": "20"
         }
       ],
-      "status": true
+      "status": false
     }
   ]
 }
